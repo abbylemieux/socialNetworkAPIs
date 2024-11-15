@@ -1,7 +1,6 @@
 const router = require('express').Router();
-const userController = require('../controllers/userController');
+const userRoutes = require('./userRoutes'); // Ensure this path is correct
 
-router.route('/users').get(userController.getUsers).post(userController.createUser);
-router.route('/users/:id').get(userController.getSingleUser).put(userController.updateUser).delete(userController.deleteUser);
+router.use('/users', userRoutes); // This will route requests from /api/users to userRoutes
 
 module.exports = router;
